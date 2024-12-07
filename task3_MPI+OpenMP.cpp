@@ -417,9 +417,6 @@ int main(int argc, char** argv) {
 
     int iter = 0;
 
-    // 设置每个 MPI 进程的 OpenMP 线程数
-    omp_set_num_threads(4);
-
     // 记录运行时间
     auto start = chrono::high_resolution_clock::now();
     Jacobi_MPI(iter);
