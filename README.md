@@ -32,38 +32,61 @@ xxx - это номер полученного задания
 --------------------------------------------------------------------------------
 MPI:
 vim task2.cpp
+
 mpic++ -std=c++11 -o newrun task2.cpp
 
 vim task2_job.lsf
+
 task2_job.lsf:
+
 #BSUB -n M
+
 #BSUB -W 00:15
+
 #BSUB -o "my_job.%J.out"
+
 #BSUB -e "my_job.%J.err"
+
 #BSUB -R "span[ptile=1]"
+
 module load openmpi
+
 mpirun -np N ./newrun
+
 Здесь параметр M задает число запрашиваемых ядер. Параметр N - это количество запрашиваемых MPI-процессов.
 
 bsub < task2_job.lsf
+
 cat my_job.<xxx>.out
+
 xxx - это номер полученного задания
 
 --------------------------------------------------------------------------------
 MPI+OpenMP:
 vim task3.cpp
+
 mpic++ -fopenmp -std=c++11 -o newrun task3.cpp
 
 vim task3_job.lsf
+
 task3_job.lsf:
+
 #BSUB -n M
+
 #BSUB -W 00:15
+
 #BSUB -o "my_job.%J.out"
+
 #BSUB -e "my_job.%J.err"
+
 export OMP_NUM_THREADS=N
+
 mpirun -np Y ./newrun
+
 Здесь параметр N указывает число OpenMP нитей на один MPI процесс. Параметр M задает число запрашиваемых ядер и равно числу запрашиваемых MPI-процессов. Параметр Y - это количество запрашиваемых MPI-процессов.
 
 bsub < task3_job.lsf
+
 cat my_job<xxx>.out
+
 xxx - это номер полученного задания
