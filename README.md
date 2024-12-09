@@ -1,7 +1,7 @@
 # super-computer
 Команды для сборки и запуска программы на IBM Polus
 --------------------------------------------------------------------------------
-OpenMP:
+# OpenMP:
 vim task1.cpp
 
 g++ -fopenmp -std=c++11 task1.cpp -o newrun
@@ -30,7 +30,7 @@ cat my_job.<xxx>.out
 xxx - это номер полученного задания
 
 --------------------------------------------------------------------------------
-MPI:
+# MPI:
 vim task2.cpp
 
 mpic++ -std=c++11 -o newrun task2.cpp
@@ -62,7 +62,7 @@ cat my_job.<xxx>.out
 xxx - это номер полученного задания
 
 --------------------------------------------------------------------------------
-MPI+OpenMP:
+# MPI+OpenMP:
 vim task3.cpp
 
 mpic++ -fopenmp -std=c++11 -o newrun task3.cpp
